@@ -28,16 +28,16 @@ public class HomeControllerTest {
     RestTemplate restTemplate = new RestTemplate();
 
     @Test
-    public void shouldAdd_AppUser_ToDb() {
+    public void shouldAddAppUserToDb() {
 
         ResponseEntity<AppUser> responseEntity = restTemplate
-                .postForEntity("http://localhost:9000/user/Abderrazak BOUADMA",
+                .postForEntity("http://localhost:9095/user/Uzumaki Naruto",
                         MockHttpServletRequest.DEFAULT_PROTOCOL,
                         AppUser.class);
 
         final AppUser appUser = responseEntity.getBody();
 
         Assertions.assertThat(appUser).isNotNull();
-        Assertions.assertThat(appUser.getUsername()).isNotNull().isEqualTo("Abderrazak BOUADMA");
+        Assertions.assertThat(appUser.getUsername()).isNotNull().isEqualTo("Uzumaki Naruto");
     }
 }
